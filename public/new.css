@@ -1,0 +1,393 @@
+/* 基本樣式 */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+
+  /* 設定標題字體為 Bebas Neue */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bebas Neue', sans-serif; /* 使用 Bebas Neue 字體 */
+  font-weight: normal; /* Bebas Neue 字體本身就有適合的粗細，所以這裡使用 normal */
+}
+}
+
+/* 預設剪刀游標 */
+body {
+  cursor: url('curopen.png'), auto; /* 替換為你的游標圖片 */
+}
+
+/* 當游標被點擊時換圖片 */
+body:active {
+  cursor: url('curclose.png'), auto; /* 替換為你點擊時的游標圖片 */
+}
+
+/* 最上面的導覽行 */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-image: url('navbar.jpg'); /* 設置背景圖片 */
+  background-size: cover; /* 背景圖片自動覆蓋整個區域 */
+  z-index: 1000; /* 保證它在最上層 */
+  padding: 10px 0;
+  box-shadow: 0 4px 2px -2px rgb(79, 79, 79); /* 頂部陰影效果 */
+}
+
+.navbar nav ul {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navbar nav ul li {
+  margin: 0 20px;
+}
+
+/* 使圖片按鈕合適大小 */
+.navbar nav ul li a img {
+  width: 50px; /* 設定圖片大小 */
+  height: 50px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.navbar nav ul li a:hover img {
+  transform: scale(1.2); /* 鼠標懸停時放大圖片 */
+}
+
+body {
+  padding-top: 60px; /* 預留空間給固定的導覽欄 */
+}
+
+/* 適應不同螢幕的響應式設計 */
+@media (max-width: 768px) {
+  .navbar nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .navbar nav ul li {
+    margin: 10px 0;
+  }
+}
+
+/* #home滾動視差 */
+
+.parallax-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* 背景圖層 */
+.parallax-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('background.jpg') no-repeat center center;
+  background-size: cover;
+  z-index: 1;
+  transition: transform 0.1s ease-out;
+}
+
+/* 前景圖層 */
+.parallax-foreground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 125%;
+  background: url('scarf.png') no-repeat center center;
+  background-size: contain;
+  z-index: 2;
+  transition: transform 0.1s ease-out;
+}
+
+/* 中心文字內容 */
+.parallax-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  text-align: center;
+  color: white;
+  font-size: 3em;
+}
+
+/* 滾動區域內容 */
+.normal-content {
+  height: 150vh;
+  background: #f4f4f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+}
+
+/* #Gallery */
+.gallery {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* 根據需要調整高度 */
+}
+
+/* Gallery標題的樣式 */
+.gallery-title {
+  position: absolute; /* 使標題固定在左上角 */
+  font-size: 4em; /* 增大標題字體 */
+  margin-left: 20px; /* 讓標題有適當的左邊距 */
+  top: 20px; /* 距離上邊距 20px，可以根據需要調整 */
+  left: 20px; /* 距離左邊距 20px，可以根據需要調整 */
+  font-weight: bold; /* 使標題加粗 */
+  color: #333; /* 設置標題的顏色，可以選擇其他顏色 */
+  z-index: 2; /* 確保標題顯示在其他內容之上 */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 可選：為標題添加陰影效果 */
+}
+
+.gallery {
+  position: relative; /*確保標題的絕對定位以gallery區域為參考 */
+}
+
+
+.background {
+  background-image: url('gallerybg.jpg'); /* 放入你想要的背景圖 */
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 100px; /* 調整容器之間的間距 */
+  padding-top: 100px; /* 讓容器有適當的上邊距 */
+}
+
+.gif-container {
+  width: 200px; /* 可以根據需要調整寬度 */
+  text-align: center;
+}
+
+.gif-container img {
+  width: 130%; /* 讓gif圖自動調整大小 */
+  border-radius: 8px;
+}
+
+.gif-container p {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+/* 圖片輪播容器 */
+.slideshow-container {
+  max-width: 20%;
+  position: relative;
+  margin: auto;
+}
+
+/* 每一張幻燈片 */
+.mySlides {
+  display: none; /* 預設隱藏所有圖片 */
+}
+
+/* 漸變效果 */
+.fade {
+  animation-name: fade;
+  animation-duration: 2s;
+}
+
+/* 漸變動畫效果 */
+@keyframes fade {
+  from {
+      opacity: 0.4;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+/* 圖片樣式 */
+.slideshow-container img {
+  width: 100%; /* 圖片自適應容器寬度 */
+  height: auto; /* 圖片高度自動調整 */
+}
+
+/* 關於我區樣式 */
+#about {
+  padding: 40px 20px;
+  background-image: url('aboutbg.jpg'); /* 替換成你想要的圖片路徑 */
+  background-size: cover; /* 使圖片覆蓋整個區域 */
+  background-position: center; /* 使圖片居中顯示 */
+  display: flex; /* 使用 Flex 排版 */
+  align-items: flex-start; /* 垂直對齊 */
+  gap: 20px; /* 標題與文字的間距 */
+  color: white; /* 文字顏色設為白色，以便更容易閱讀 */
+  min-height: 600px; /* 添加最小高度，根據需要調整 */
+}
+
+/* 標題樣式 */
+.about-title {
+  flex: 1; /* 標題佔用 1 單位空間 */
+  font-size: 4rem;
+  font-weight: bold;
+  color: #fff; /* 標題顏色設為白色 */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 添加陰影使標題更加突出 */
+}
+
+/* 文字樣式 */
+.about-text {
+  flex: 3; /* 文字區域佔用 3 單位空間 */
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #fff; /* 文字顏色設為白色 */
+  max-width: 800px; /* 限制文字區域的最大寬度 */
+}
+
+
+
+/* 整個聯絡區樣式 */
+#contact {
+  background-image: url(contactt.jpg); /* 背景圖片 */
+  background-size: cover; /* 讓背景圖片覆蓋整個區域 */
+  background-position: center; /* 確保背景圖片居中 */
+  height: 100vh; /* 區域高度佔滿整個視窗 */
+  text-align: left; /* 文字左對齊 */
+  color: #fff; /* 設定文字顏色為白色 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 垂直置中內容 */
+  align-items: center; /* 水平置中內容 */
+  position: relative; /* 為絕對定位的子元素提供參考 */
+}
+
+/* 聯絡區標題 */
+.text h2 {
+  font-size: 4em; /* 增大標題字體 */
+  margin-left: 20px; /* 讓標題有適當的左邊距 */
+  position: absolute; /* 使標題固定在左上角 */
+  top: 20px;
+  left: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* 添加文字陰影 */
+}
+
+/* 社群媒體文字 */
+.social-text {
+  font-size: 1.5em; /* 設定文字大小 */
+  margin-bottom: 5px; /* 與圖標保持適當間距 */
+}
+
+/* 社群媒體圖標區 */
+.social-links {
+  display: flex;
+  justify-content: center; /* 將圖標置中 */
+  gap: 30px; /* 圖標之間的間距 */
+  margin-bottom: 5px; /* 與表單保持適當間距 */
+}
+
+/* 社群媒體圖標 */
+.social-links a img {
+  width: 80px; /* 圖片大小 */
+  height: 80px;
+  transition: transform 0.3s ease, filter 0.3s ease; /* 增加動畫效果 */
+}
+
+.social-links a:hover img {
+  transform: scale(1.2); /* 放大圖片 */
+}
+
+/* 表單容器 */
+#contactForm {
+  width: 90%; /* 響應式寬度 */
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  /* 移除背景與陰影 */
+}
+
+/* 標籤 */
+#contactForm label {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* 輸入框與文字區 */
+#contactForm input[type="text"],
+#contactForm input[type="email"],
+#contactForm textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #333;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease-in-out;
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* 提交按鈕 */
+#contactForm button[type="submit"],
+#contactForm input[type="image"] {
+  display: block;
+  margin: 0 auto; /* 置中 */
+  cursor: pointer;
+}
+
+/* 成功與錯誤訊息 */
+#success .alert-success,
+#success .alert-danger {
+  font-size: 1rem;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+
+
+
+/* 版權 */
+footer {
+  text-align: center;
+  padding: 5px;
+  background: #6b0e0e;
+  color: white;
+}

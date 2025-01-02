@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>9143</title>
+  <link rel="stylesheet" href="new.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+
+<!-- 固定導覽欄 -->
+<header class="navbar">
+    <nav>
+      <ul>
+        <li><a href="#home"><img src="home.png" alt="首頁"></a></li>
+        <li><a href="#gallery"><img src="gallery.png" alt="作品"></a></li>
+        <li><a href="#about"><img src="about.png" alt="關於我"></a></li>
+        <li><a href="#contact"><img src="contact.png" alt="聯絡我"></a></li>
+      </ul>
+    </nav>
+</header>
+  
+<body>
+
+  <!-- 視差區域 -->
+  <div class="parallax-container" id="home">
+    <div class="parallax-background"></div>
+    <div class="parallax-foreground"></div>
+    <div class="parallax-content">
+    </div>
+  </div>
+
+<!-- 作品區 -->
+<section id="gallery">
+    <section class="gallery">
+      <div class="background">
+          <!-- 作品展示區的背景 -->
+      </div>
+      <h2 class="gallery-title">Gallery</h2> <!-- 添加標題 -->
+      <div class="container">
+          <div class="gif-container">
+              <img src="flame.gif" alt="作品1">
+              <p>FLAME CLOCK</p>
+          </div>
+          <div class="gif-container">
+              <img src="solid.gif" alt="作品2">
+              <p>SOLID CLOCK</p>
+          </div>
+          <div class="gif-container">
+              <img src="spiral.gif" alt="作品3">
+              <p>SPIRAL CLOCK</p>
+          </div>
+      </div>
+  
+        <!-- 旋轉木馬區域 -->
+        <div class="carousel-container">
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <img src="1.PNG" alt="旋轉木馬1">
+                </div>
+                <div class="mySlides fade">
+                    <img src="2.PNG" alt="旋轉木馬2">
+                </div>
+                <div class="mySlides fade">
+                    <img src="3.PNG" alt="旋轉木馬3">
+                </div>
+                <div class="mySlides fade">
+                    <img src="4.PNG" alt="旋轉木馬4">
+                </div>
+            </div>
+        </div>
+    </section>
+  </section>
+  
+  <!-- 關於我區 -->
+<section id="about">
+  <h2 class="about-title">About 9143</h2>
+  <p class="about-text">
+    Hi! I'm the creator behind 9143. To me, this name is more than just a string of numbers it represents joy and my love for life. "91" sounds like the word "Joy," and "43" is my lucky number.<br><br>
+    I love using knitting, crocheting, and even various materials to create vibrant and colorful pieces. For me, it's not just a craft; it's my way of expressing myself and exploring endless possibilities.<br><br>
+    At 9143, I'm not just making products.I want to share my passion for life with every stitch. If you enjoy creative, colorful, and unconventional styles, I hope my work can be a part of your life, bringing you little bits of joy and surprise.
+  </p>
+</section>
+  
+
+<!-- 聯絡我區 -->
+<section id="contact">
+  <div class="text">
+    <h2>Contact me</h2>
+    <!-- 社群媒體文字 -->
+  </div>
+
+  <!-- 社群媒體圖標區 -->
+  <div class="social-text">Feel free to reach out via my social media!</div>
+  <div class="social-links">
+    <a href="https://www.instagram.com/9143syarnstuff?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+      <img src="ig.png" alt="Instagram">
+    </a>
+    <a href="https://www.threads.net/@9143syarnstuff" target="_blank">
+      <img src="threads.png" alt="Facebook">
+    </a>
+    <a href="mailto:9143syarnstuff@gmail.com" target="_blank">
+      <img src="mail.png" alt="Email">
+    </a>
+  </div>
+</section>
+
+<!-- 聯絡表單 -->
+<form id="contactForm" name="contactForm" method="POST" action="/contact">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" class="form-control" required>
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" class="form-control" required>
+  </div>
+  <div class="form-group">
+    <label for="message">Message</label>
+    <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+  </div>
+  <input type="image" src="sendme.png" alt="Submit" style="width: 100px; height: auto;">
+</form>
+
+<!-- 用來顯示成功或錯誤訊息的區域 -->
+<div id="success"></div>
+
+
+  
+
+  <!-- 版權聲明 -->
+  <footer>
+    <p>&copy;  2025 9143. All rights reserved</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
