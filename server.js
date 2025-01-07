@@ -33,6 +33,7 @@ transporter.sendMail({
 // 表單提交處理
 app.post("/contact", (req, res) => {
   const { name, email, message } = req.body;
+  console.log("Form data received:", { name, email, message }); // 新增這行來檢查是否有正確接收到表單資料
 
   let mailOptions = {
     from: email,
