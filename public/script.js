@@ -11,23 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
       foreground.style.transform = `translateY(${scrollY * 0.5}px)`; // 前景較快
     });
   });
-  // slide show
-  let slideIndex = 0;
 
-  function showSlides() {
-      let slides = document.getElementsByClassName("mySlides");
-      for (let i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none"; // 隱藏所有圖片
-      }
-      slideIndex++; // 增加索引，顯示下一張圖片
-      if (slideIndex > slides.length) {
-          slideIndex = 1; // 如果已經是最後一張，從第一張重新開始
-      }
-      slides[slideIndex - 1].style.display = "block"; // 顯示當前索引對應的圖片
-      setTimeout(showSlides, 3000); // 每 3 秒切換一次
-  }
-  
-  showSlides(); // 開始自動切換圖片
+
+var myCarousel = document.querySelector('#demo')
+var carousel = new bootstrap.Carousel(myCarousel, {
+  interval: 2000,  // 設定輪播時間間隔（毫秒）
+
+})
+
 
   $(document).ready(function() {
     $("#contactForm").on("submit", function(event) {
