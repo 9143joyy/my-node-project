@@ -35,11 +35,14 @@ app.post("/contact", (req, res) => {
   const { name, email, message } = req.body;
   console.log("Form data received:", { name, email, message }); // 新增這行來檢查是否有正確接收到表單資料
 
+  // 測試回應用於檢查資料是否到達後端
+  res.status(200).json({ message: "資料收到！" });
+
   let mailOptions = {
     from: email,
     to: "9143syarnstuff@gmail.com",
-    subject: `Message from ${name}`, // 修正語法錯誤，添加反引號
-    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}` // 修正語法錯誤，添加反引號
+    subject: `Message from ${name}`,
+    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
@@ -56,5 +59,5 @@ app.post("/contact", (req, res) => {
 // 啟動伺服器
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`); // 修正語法錯誤，添加反引號
+  console.log(`Server is running on port ${PORT}`);
 });
