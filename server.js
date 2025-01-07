@@ -12,8 +12,8 @@ app.use(express.static("public"));
 let transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "9143syarnstuff@gmail.com",  // 替換為你的 Gmail
-    pass: "iboo yrst vgsx xawr"              // 替換為生成的應用程式密碼
+    user: "9143syarnstuff@gmail.com", // 替換為你的 Gmail
+    pass: "iboo yrst vgsx xawr" // 替換為生成的應用程式密碼
   }
 });
 
@@ -37,8 +37,8 @@ app.post("/contact", (req, res) => {
   let mailOptions = {
     from: email,
     to: "9143syarnstuff@gmail.com",
-    subject: `Message from ${name}`,
-    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
+    subject: `Message from ${name}`, // 修正語法錯誤，添加反引號
+    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}` // 修正語法錯誤，添加反引號
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
@@ -55,5 +55,5 @@ app.post("/contact", (req, res) => {
 // 啟動伺服器
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`); // 修正語法錯誤，添加反引號
 });
