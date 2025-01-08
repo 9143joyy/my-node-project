@@ -1,63 +1,95 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const nodemailer = require("nodemailer");
+var express = require("express");
+var cors = require("cors");  // 引入 CORS 套件
+var server = express();
+var path = require("path");
 
-const app = express();
-app.use(bodyParser.urlencoded({ extended: true })); // 解析表單資料
+// 啟用 CORS
+server.use(cors());
 
-// 提供靜態文件的路徑
-app.use(express.static("public"));
+// 設定 web 根目錄為 public 資料夾
+server.use(express.static(path.join(__dirname, 'public')));  // 提供 public 資料夾中的所有靜態檔案
 
-// 測試郵件發送功能
-let transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: "9143syarnstuff@gmail.com", // 替換為你的 Gmail
-    pass: "iboo yrst vgsx xawr" // 替換為生成的應用程式密碼
-  }
-});
 
-transporter.sendMail({
-  from: "9143syarnstuff@gmail.com",
-  to: "9143syarnstuff@gmail.com",
-  subject: "Test Email",
-  text: "This is a test email."
-}, (error, info) => {
-  if (error) {
-    console.error("Test mail error:", error);
-  } else {
-    console.log("Test mail sent:", info.response);
-  }
-});
+// 使用內建的 JSON 和 URL 編碼解析器
+server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
 
-// 表單提交處理
-app.post("/contact", (req, res) => {
-  const { name, email, message } = req.body;
-  console.log("Form data received:", { name, email, message }); // 新增這行來檢查是否有正確接收到表單資料
+var fileUpload = require("express-fileupload");
+server.use(fileUpload({ defCharset: 'utf8', defParamCharset: 'utf8' }));
 
-  // 測試回應用於檢查資料是否到達後端
-  res.status(200).json({ message: "資料收到！" });
+// 設定資料庫
+var DB = require("nedb-promises");
+var galleryDB = DB.create(path.join(__dirname, "db", "gallery.db"));  // 確保 "db" 資料夾存在
+var carouselDB = DB.create(path.join(__dirname, "db", "carousel.db"));  // 確保 "db" 資料夾存在
 
-  let mailOptions = {
-    from: email,
-    to: "9143syarnstuff@gmail.com",
-    subject: `Message from ${name}`,
-    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
-  };
-
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.error("Error details:", error);
-      res.status(500).send("Error sending email.");
-    } else {
-      console.log("Email sent:", info.response);
-      res.status(200).send("Message sent successfully!");
+// 插入資料前檢查是否已經有資料
+async function checkAndInsertGallery() {
+    const count = await galleryDB.count({});
+    if (count === 0) {
+        galleryDB.insert([
+            { img: "/img/flame.gif", text: "FLAME CLOCK" },
+            { img: "/img/solid.gif", text: "SOLID CLOCK" },
+            { img: "/img/spiral.gif", text: "SPIRAL CLOCK" },
+        ]).then(() => {
+            console.log("Gallery data inserted.");
+        }).catch(err => {
+            console.error("Error inserting gallery data:", err);
+        });
     }
-  });
+}
+
+async function checkAndInsertCarousel() {
+    const count = await carouselDB.count({});
+    if (count === 0) {
+        carouselDB.insert([
+            { img: "/img/1.JPG" },
+            { img: "/img/2.JPG" },
+            { img: "/img/3.JPG" },
+            { img: "/img/4.JPG" },
+        ]).then(() => {
+            console.log("Carousel data inserted.");
+        }).catch(err => {
+            console.error("Error inserting carousel data:", err);
+        });
+    }
+}
+
+// 在伺服器啟動時檢查並插入資料
+checkAndInsertGallery();
+checkAndInsertCarousel();
+
+// 取得 gallery 資料
+server.get("/gallery", (req, res) => {
+    galleryDB.find({}).then(results => {
+        if (results != null) {
+            res.send(results);
+        } else {
+            res.send("Error!");
+        }
+    }).catch(err => {
+        res.send("Error retrieving gallery data: " + err);
+    });
 });
 
-// 啟動伺服器
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+// 取得 carousel 資料
+server.get("/carousel", (req, res) => {
+    carouselDB.find({}).then(results => {
+        if (results != null) {
+            res.send(results);
+        } else {
+            res.send("Error!");
+        }
+    }).catch(err => {
+        res.send("Error retrieving carousel data: " + err);
+    });
+});
+
+// 預設首頁
+server.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/index.html'));
+});
+
+// 伺服器監聽
+server.listen(3000, () => {
+    console.log("Server is running at port 3000.");
 });
