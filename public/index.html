@@ -41,16 +41,21 @@
 <!-- 作品區 -->
 <section id="gallery">
   <section class="gallery">
+    <div id="gallery">
       <div class="background"></div><!-- 作品展示區的背景 -->
       <h2 class="gallery-title">Gallery</h2> <!-- 添加標題 -->
-
+  
       <div v-for="item in gallery" :key="item.img" class="container">
           <div class="gif-container">
-              <img :src="item.img" :alt="item.text">
+              <!-- 綁定圖片的 src 和 alt 屬性 -->
+              <img :src="'/img/'+item.img" :alt="item.text">
+              <!-- 顯示文本 -->
               <p>{{ item.text }}</p>
           </div>
       </div>
-    </div>
+  </div>
+</section>
+</section>
 
 
           <!-- <div class="gif-container">
@@ -67,21 +72,21 @@
           </div>-->
 
 
-<!-- slideshow區域 -->
-<div id="carousel" class="carousel-container">
-  <div class="slideshow-container">
-      <div v-for="(item, index) in gallery" 
+<!-- carousel區域 -->
+<section id="carousel">
+  <div class="carousel-container">
+      <div v-for="(item, index) in carousel" 
            :key="index" 
-           class="mySlides fade" 
+           class="mySlides" 
            :class="{ active: currentIndex === index }">
-          <img :src="item.img" :alt="'slideshow' + (index + 1)">
+        <img :src="item.img" :alt="'slideshow' + (index + 1)">
       </div>
+      <button class="prev" @click="prevImage">上一張</button>
+      <button class="next" @click="nextImage">下一張</button>      
   </div>
-  <button @click="prevImage">上一張</button>
-  <button @click="nextImage">下一張</button>
-</div>
 </section>
-</section>
+
+
 
         <!--<div class="carousel-container">
             <div class="slideshow-container">

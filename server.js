@@ -7,9 +7,9 @@ var path = require("path");
 server.use(cors());
 
 // 設定 web 根目錄為 public 資料夾
-server.use(express.static(path.join(__dirname, 'public')));  // 提供 public 資料夾中的所有靜態檔案
+ // 提供 public 資料夾中的所有靜態檔案
 
-
+server.use(express.static(path.join(__dirname,"public")))
 // 使用內建的 JSON 和 URL 編碼解析器
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
@@ -27,9 +27,9 @@ async function checkAndInsertGallery() {
     const count = await galleryDB.count({});
     if (count === 0) {
         galleryDB.insert([
-            { img: "/img/flame.gif", text: "FLAME CLOCK" },
-            { img: "/img/solid.gif", text: "SOLID CLOCK" },
-            { img: "/img/spiral.gif", text: "SPIRAL CLOCK" },
+            { img: "flame.gif", text: "FLAME CLOCK" },
+            { img: "solid.gif", text: "SOLID CLOCK" },
+            { img: "spiral.gif", text: "SPIRAL CLOCK" },
         ]).then(() => {
             console.log("Gallery data inserted.");
         }).catch(err => {

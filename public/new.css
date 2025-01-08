@@ -58,14 +58,11 @@ body:active {
   transform: scale(1.2); /* 鼠標懸停時放大圖片 */
 }
 
-body {
-  padding-top: 60px; /* 預留空間給固定的導覽欄 */
-}
+
 
 /* 適應不同螢幕的響應式設計 */
 @media (max-width: 768px) {
   .navbar nav ul {
-    flex-direction: column;
     align-items: center;
   }
   
@@ -172,8 +169,8 @@ body {
   position: relative;
   display: flex;
   justify-content: center;
-  gap: 100px; /* 調整容器之間的間距 */
-  padding-top: 100px; /* 讓容器有適當的上邊距 */
+  gap: 50px; /* 調整容器之間的間距 */
+  padding-top: 50px; /* 讓容器有適當的上邊距 */
 }
 
 .gif-container {
@@ -193,39 +190,72 @@ body {
 }
 
 
-/* 圖片輪播容器 */
-.slideshow-container {
-  max-width: 20%;
+ /* carousel 區域 */
+.carousel-container {
+  width: 100%; 
+  max-width: 100%;
   position: relative;
   margin: auto;
 }
 
 /* 每一張幻燈片 */
 .mySlides {
-  display: none; /* 預設隱藏所有圖片 */
+  display: none;
+  object-fit: cover; /* 保持圖片比例，同時填滿容器 */
 }
 
-/* 漸變效果 */
-.fade {
-  animation-name: fade;
-  animation-duration: 2s;
-}
-
-/* 漸變動畫效果 */
-@keyframes fade {
-  from {
-      opacity: 0.4;
-  }
-  to {
-      opacity: 1;
+/* 媒體查詢：針對小螢幕設備 */
+@media (max-width: 768px) {
+  .mySlides img {
+    width: 100%;
+    max-height: 200px;  /* 調整圖片的最大高度 */
+    object-fit: cover;
   }
 }
 
-/* 圖片樣式 */
-.slideshow-container img {
-  width: 100%; /* 圖片自適應容器寬度 */
-  height: auto; /* 圖片高度自動調整 */
+/* 媒體查詢：針對非常小的螢幕設備 */
+@media (max-width: 480px) {
+  .mySlides img {
+    width: 100%;
+    max-height: 150px;  /* 調整圖片的最大高度 */
+    object-fit: cover;
+  }
 }
+
+/* 激活顯示當前幻燈片 */
+.mySlides.active {
+  display: block;
+}
+
+/* 控制按鈕樣式 */
+.carousel-container button {
+  position: absolute;
+  top: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 10; /* 確保按鈕在圖片上面 */
+}
+
+.carousel-container button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-container .prev {
+  left: 10px;
+}
+
+.carousel-container .next {
+  right: 10px;
+}
+
+
+
+
+
 
 /* 關於我區樣式 */
 #about {
