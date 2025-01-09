@@ -168,7 +168,7 @@ body:active {
 
 /* 圖片樣式 */
 .gif-container img {
-  width: 100%; /* 圖片寬度填滿 */
+  width: auto; /* 圖片寬度填滿 */
   height: 200px; /* 保持圖片比例 */
   border-radius: 4px; /* 圓角 */
 }
