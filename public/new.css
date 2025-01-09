@@ -125,73 +125,41 @@ body:active {
 
 
 
-/* #Gallery */
-.gallery {
-  position: relative;
-  width: 100%;
-  height: 100vh; /* 根據需要調整高度 */
-}
-
-/* Gallery標題的樣式 */
+/* 標題樣式 */
 .gallery-title {
-  position: absolute; /* 使標題固定在左上角 */
-  font-size: 4em; /* 增大標題字體 */
-  margin-left: 20px; /* 讓標題有適當的左邊距 */
-  top: 20px; /* 距離上邊距 20px，可以根據需要調整 */
-  left: 20px; /* 距離左邊距 20px，可以根據需要調整 */
-  font-weight: bold; /* 使標題加粗 */
-  color: #333; /* 設置標題的顏色，可以選擇其他顏色 */
-  z-index: 2; /* 確保標題顯示在其他內容之上 */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 可選：為標題添加陰影效果 */
+  text-align: center; /* 置中標題 */
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1f1f1f; /* 紫粉色 */
+  margin-bottom: 20px;
 }
 
-.gallery {
-  position: relative; /*確保標題的絕對定位以gallery區域為參考 */
-}
-
-
-.background {
-  background-image: url('gallerybg.jpg'); /* 放入你想要的背景圖 */
-  background-size: cover;
-  background-position: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  
-}
-
-/* 作品區容器 */
+/* 父容器 Flexbox 設置 */
 .container {
-  position: relative;
   display: flex;
-  justify-content: center;
-  padding-top: 50px; /* 讓容器有適當的上邊距 */
-  flex-wrap: wrap; /* 允許容器換行 */
-  max-width: 1200px; /* 設置最大寬度 */
+  flex-wrap: wrap; /* 容器內子項目可換行 */
+  justify-content: space-between; /* 子項目等距分布 */
+  gap: 20px; /* 子項目之間的間距 */
+  max-width: 1200px; /* 最大寬度 */
   margin: 0 auto; /* 水平居中 */
-  overflow: hidden; /* 防止內容溢出 */
-
+  padding: 20px; /* 上下內距 */
 }
 
 /* 子容器樣式 */
 .gif-container {
-  flex: 0 1 calc(33.33% - 20px); /* 每行三個，減去間距 */
-  max-width: 300px; /* 限制最大寬度，防止變太大 */
-  text-align: center;
-  background-color: #fff;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加陰影效果 */
+  flex: 0 1 calc(33.33% - 20px); /* 每行三個項目，減去間距 */
+  text-align: center; /* 文字置中 */
+  background-color: #fff; /* 白色背景 */
+  padding: 15px; /* 內距 */
+  border-radius: 8px; /* 圓角 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 陰影效果 */
 }
-
 
 /* 圖片樣式 */
 .gif-container img {
-  width: 100%; /* 圖片填滿容器寬度 */
+  width: 100%; /* 圖片寬度填滿父容器 */
   height: auto; /* 保持圖片比例 */
-  border-radius: 4px;
+  border-radius: 4px; /* 圓角 */
 }
 
 /* 文字樣式 */
@@ -205,15 +173,16 @@ body:active {
 /* 響應式設計 */
 @media (max-width: 768px) {
   .gif-container {
-    flex: 0 1 45%; /* 較小螢幕上每行顯示兩個項目 */
+    flex: 0 1 calc(50% - 20px); /* 每行顯示兩個項目 */
   }
 }
 
 @media (max-width: 480px) {
   .gif-container {
-    flex: 0 1 100%; /* 最小螢幕上每行顯示一個項目 */
+    flex: 0 1 100%; /* 每行顯示一個項目 */
   }
 }
+
 
 
 
