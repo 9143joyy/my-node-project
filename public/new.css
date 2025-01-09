@@ -71,62 +71,59 @@ body:active {
   }
 }
 
-/* #home滾動視差 */
-
+/* 視差容器 */
 .parallax-container {
+  height: 200vh; /* 滾動範圍 */
   position: relative;
-  width: 100%;
-  height: 100vh;
   overflow: hidden;
 }
 
-/* 背景圖層 */
+/* 背景 */
 .parallax-background {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('background.jpg') no-repeat center center;
+  background-image: url('IMG_7355.JPG'); /* 替換為背景圖片 */
   background-size: cover;
-  z-index: 1;
-  transition: transform 0.1s ease-out;
+  background-position: center;
+  transform: scale(1); /* 初始大小 */
+  transition: transform 0.1s ease-out; /* 平滑效果 */
+  z-index: -1;
 }
 
-/* 前景圖層 */
-.parallax-foreground {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 125%;
-  background: url('scarf.png') no-repeat center center;
-  background-size: contain;
-  z-index: 2;
-  transition: transform 0.1s ease-out;
-}
-
-/* 中心文字內容 */
-.parallax-content {
+/* 圍巾樣式 */
+.leftscarf,.rightscarf {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-  text-align: center;
-  color: white;
-  font-size: 3em;
+  transform: translateY(-30%);
+  width: 60%; /* 根據需要調整寬度 */
+  height: 900px; /* 根據需要調整高度 */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 1;
 }
 
-/* 滾動區域內容 */
-.normal-content {
-  height: 150vh;
-  background: #f4f4f4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5em;
+
+.leftscarf {
+  left: 0; /* 初始位置 */
+  background-image: url('scarfleft.png'); /* 左圍巾圖片 */
+  /*transform: translateY(-30%) translateY(50%); 調整右圍巾往下移動 */
+  /* 可以調整 translateY(20%) 的值來控制下移的距離 */
 }
+
+.rightscarf {
+  right: 0; /* 初始位置 */
+  background-image: url('scarfright.png'); /* 右圍巾圖片 */
+  transform: translateY(-30%) translateY(50%); /* 調整右圍巾往下移動 */
+  /* 可以調整 translateY(20%) 的值來控制下移的距離 */
+}
+
+
+
+
 
 /* #Gallery */
 .gallery {
@@ -165,6 +162,16 @@ body:active {
   
 }
 
+/* 作品區容器 */
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 50px; /* 調整容器之間的間距 */
+  padding-top: 50px; /* 讓容器有適當的上邊距 */
+  flex-wrap: wrap; /* 允許容器換行 */
+}
+/* 作品區容器 */
 .container {
   position: relative;
   display: flex;
@@ -173,13 +180,14 @@ body:active {
   padding-top: 50px; /* 讓容器有適當的上邊距 */
 }
 
+/* gif-container 預設樣式 */
 .gif-container {
   width: 200px; /* 可以根據需要調整寬度 */
   text-align: center;
 }
 
 .gif-container img {
-  width: 130%; /* 讓gif圖自動調整大小 */
+  width: 130%; /* 讓 gif 圖自動調整大小 */
   border-radius: 8px;
 }
 
@@ -188,6 +196,21 @@ body:active {
   font-size: 14px;
   font-weight: bold;
 }
+
+/* 響應式：當螢幕寬度小於 768px 時，改為直排 */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* 改為直排 */
+    justify-content: flex-start; /* 保持容器靠左 */
+    align-items: center; /* 讓內容居中 */
+  }
+  
+  .gif-container {
+    width: 100%; /* 讓 gif-container 佔滿全寬 */
+    margin-bottom: 20px; /* 讓每個項目之間有間距 */
+  }
+}
+
 
 
  /* carousel 區域 */

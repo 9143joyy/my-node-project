@@ -1,20 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
-    window.addEventListener('scroll', function () {
-      const scrollY = window.scrollY;
-  
-      // 取得背景與前景元素
-      const background = document.querySelector('.parallax-background');
-      const foreground = document.querySelector('.parallax-foreground');
-  
-      // 設置視差滾動效果
-      background.style.transform = `translateY(${scrollY * 0.2}px)`; // 背景較慢
-      foreground.style.transform = `translateY(${scrollY * 0.5}px)`; // 前景較快
-    });
+  const leftScarf = document.querySelector('.leftscarf');
+  const rightScarf = document.querySelector('.rightscarf');
+  const background = document.querySelector('.parallax-background');
+
+  let lastScrollY = 0; // 用來追蹤上一個滾動位置
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+
+    // 背景放大效果
+    const scaleFactor = 1 + scrollY / 500;
+    background.style.transform = `scale(${scaleFactor})`;
+
+    leftScarf.style.transform = `translateX(-${(scrollY - windowHeight * 0.4) * 0.4}px)`;
+    rightScarf.style.transform = `translateX(${(scrollY - windowHeight * 0.4) * 0.4}px)`;
+
+    lastScrollY = scrollY; // 更新最後的滾動位置
   });
-
-
-var myCarousel = document.querySelector('#demo')
-var carousel = new bootstrap.Carousel(myCarousel, {
-  interval: 2000,  // 設定輪播時間間隔（毫秒）
-
-})
+});
