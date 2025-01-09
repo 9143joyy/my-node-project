@@ -175,36 +175,49 @@ body:active {
 
 }
 
-/* gif-container 預設樣式 */
+/* 父容器，使用 Flexbox 排列 */
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* 元素之間的間距 */
+  flex-wrap: wrap; /* 允許換行 */
+  padding: 20px 0;
+}
+
+/* 子項目樣式 */
 .gif-container {
-  flex: 0 1 33%; /* 設置子元素固定基準寬度，並禁止撐開 */
-  width: 50%; /* 調整為更大或更小的比例 */
+  flex: 0 1 30%; /* 寬度為容器的 30%，隨螢幕大小自適應 */
+  max-width: 300px; /* 限制最大寬度 */
   text-align: center;
+  background-color: #fff; /* 背景為白色 */
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加陰影 */
 }
 
 .gif-container img {
-  width: 90%;
-  height: auto; /* 保持圖片比例 */
-  max-width: 100%; /* 確保圖片不超出容器 */
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
 }
 
 .gif-container p {
   margin-top: 10px;
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
 }
 
-/* 響應式：當螢幕寬度小於 768px 時，改為直排 */
+/* 響應式設計 */
 @media (max-width: 768px) {
-  .container {
-    flex-direction: column; /* 改為直排 */
-    justify-content: flex-start; /* 保持容器靠左 */
-    align-items: center; /* 讓內容居中 */
-  }
-  
   .gif-container {
-    width: 100%; /* 讓 gif-container 佔滿全寬 */
-    margin-bottom: 20px; /* 讓每個項目之間有間距 */
+    flex: 0 1 45%; /* 較小螢幕上改為 2 列排列 */
+  }
+}
+
+@media (max-width: 480px) {
+  .gif-container {
+    flex: 0 1 100%; /* 最小螢幕上改為單列排列 */
   }
 }
 
