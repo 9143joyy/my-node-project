@@ -163,30 +163,36 @@ body:active {
 }
 
 /* 作品區容器 */
-.gif-container {
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px; /* 讓容器有適當的上邊距 */
+  flex-wrap: wrap; /* 允許容器換行 */
+  max-width: 1200px; /* 設置最大寬度 */
+  margin: 0 auto; /* 水平居中 */
+  overflow: hidden; /* 防止內容溢出 */
+
+}
+
+/* 父容器設置 Flexbox */
+.container {
   display: flex; /* 啟用 Flexbox */
-  flex-wrap: wrap; /* 允許換行 */
-  justify-content: center; /* 讓每排的內容水平居中 */
+  justify-content: center; /* 水平居中排列 */
   gap: 20px; /* 子元素之間的間距 */
+  flex-wrap: wrap; /* 允許元素在空間不足時換行 */
   padding: 20px 0;
 }
 
 /* 子容器樣式 */
 .gif-container {
-  flex: 0 1 calc(50% - 20px); /* 每行 2 個項目，間距由 gap 控制 */
+  flex: 0 1 30%; /* 寬度占據父容器的 30% */
   max-width: 300px; /* 限制最大寬度 */
   text-align: center;
   background-color: #fff; /* 添加背景色 */
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加陰影效果 */
-}
-
-/* 第二行的單個項目居中 */
-.container .gif-container:nth-child(3) {
-  flex: 0 1 100%; /* 第二行的項目寬度為整行 */
-  display: flex;
-  justify-content: center;
 }
 
 /* 圖片樣式 */
@@ -204,12 +210,20 @@ body:active {
   color: #333;
 }
 
-/* 響應式設計：調整到小螢幕顯示方式 */
+/* 響應式設計 */
 @media (max-width: 768px) {
   .gif-container {
-    flex: 0 1 100%; /* 小螢幕上每行顯示一個項目 */
+    flex: 0 1 45%; /* 較小螢幕上每行顯示兩個項目 */
   }
 }
+
+@media (max-width: 480px) {
+  .gif-container {
+    flex: 0 1 100%; /* 最小螢幕上每行顯示一個項目 */
+  }
+}
+
+
 
 
  /* carousel 區域 */
