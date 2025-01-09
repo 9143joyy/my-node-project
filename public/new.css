@@ -175,25 +175,17 @@ body:active {
 
 }
 
-/* 父容器設置 Flexbox */
-.container {
-  display: flex; /* 啟用 Flexbox */
-  justify-content: center; /* 水平居中排列 */
-  gap: 20px; /* 子元素之間的間距 */
-  flex-wrap: wrap; /* 允許元素在空間不足時換行 */
-  padding: 20px 0;
-}
-
 /* 子容器樣式 */
 .gif-container {
-  flex: 0 1 30%; /* 寬度占據父容器的 30% */
-  max-width: 300px; /* 限制最大寬度 */
+  flex: 0 1 calc(33.33% - 20px); /* 每行三個，減去間距 */
+  max-width: 300px; /* 限制最大寬度，防止變太大 */
   text-align: center;
-  background-color: #fff; /* 添加背景色 */
+  background-color: #fff;
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加陰影效果 */
 }
+
 
 /* 圖片樣式 */
 .gif-container img {
