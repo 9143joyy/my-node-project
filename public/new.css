@@ -141,19 +141,13 @@ body:active {
 }
 
 
-/* 父容器 Flexbox 設置 */
-.container {
-  display: flex;
-  flex-wrap: wrap; /* 容器內子項目可換行 */
-  justify-content: center; /* 子項目居中對齊 */
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
+
 
 /* 子容器樣式 */
 .gif-container {
+  display: flex;
+  flex-wrap: wrap; /* 容器內子項目可換行 */
+  justify-content: center; /* 子項目居中對齊 */
   width: 100px;
   margin: 10px;
   text-align: center; /* 文字置中 */
