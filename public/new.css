@@ -133,8 +133,6 @@ body:active {
 
 
 
-
-
 /* 標題樣式 */
 .gallery-title {
   text-align: center; /* 置中標題 */
@@ -168,7 +166,7 @@ body:active {
 /* 圖片樣式 */
 .gif-container img {
   width: 100%; /* 圖片寬度填滿 */
-  height: 400px; /* 保持圖片比例 */
+  height: 100px; /* 保持圖片比例 */
   border-radius: 4px; /* 圓角 */
 }
 
@@ -215,7 +213,7 @@ body:active {
 @media (max-width: 768px) {
   .mySlides img {
     width: 100%;
-    max-height: 200px;  /* 調整圖片的最大高度 */
+    max-height: 250px;  /* 調整圖片的最大高度 */
     object-fit: cover;
   }
 }
@@ -224,7 +222,7 @@ body:active {
 @media (max-width: 480px) {
   .mySlides img {
     width: 100%;
-    max-height: 150px;  /* 調整圖片的最大高度 */
+    max-height: 180px;  /* 調整圖片的最大高度 */
     object-fit: cover;
   }
 }
@@ -346,78 +344,6 @@ body:active {
 .social-links a:hover img {
   transform: scale(1.2); /* 放大圖片 */
 }
-
-/* 表單容器 */
-#contactForm {
-  width: 90%; /* 響應式寬度 */
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  border-radius: 8px;
-  /* 移除背景與陰影 */
-}
-
-/* 標籤 */
-#contactForm label {
-  font-weight: bold;
-  font-size: 1rem;
-  color: #333;
-  margin-bottom: 8px;
-  display: block;
-}
-
-/* 輸入框與文字區 */
-#contactForm input[type="text"],
-#contactForm input[type="email"],
-#contactForm textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-  color: #333;
-  box-sizing: border-box;
-  transition: border-color 0.3s ease-in-out;
-}
-
-#contactForm input:focus,
-#contactForm textarea:focus {
-  border-color: #007bff;
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
-/* 提交按鈕 */
-#contactForm button[type="submit"],
-#contactForm input[type="image"] {
-  display: block;
-  margin: 0 auto; /* 置中 */
-  cursor: pointer;
-}
-
-/* 成功與錯誤訊息 */
-#success .alert-success,
-#success .alert-danger {
-  font-size: 1rem;
-  padding: 10px 20px;
-  margin-top: 20px;
-  border-radius: 4px;
-  text-align: center;
-}
-
-.alert-success {
-  background-color: #d4edda;
-  color: #155724;
-  border: 1px solid #c3e6cb;
-}
-
-.alert-danger {
-  background-color: #f8d7da;
-  color: #721c24;
-  border: 1px solid #f5c6cb;
-}
-
 
 
 
