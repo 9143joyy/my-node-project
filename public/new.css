@@ -158,15 +158,18 @@ body:active {
 .gif-container {
   text-align: center; /* 文字置中 */
   background-color: #fff;
-  padding: 15px;
+  padding: 30px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 80%; /* 調整寬度為 80% */
+  max-width: 1200px; /* 最大寬度設定為 1200px */
+  margin: 20px auto; /* 使容器居中，並增加上下間距 */
 }
 
 /* 圖片樣式 */
 .gif-container img {
   width: 100%; /* 圖片寬度填滿 */
-  height: 100px; /* 保持圖片比例 */
+  height: 200px; /* 保持圖片比例 */
   border-radius: 4px; /* 圓角 */
 }
 
