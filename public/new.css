@@ -167,9 +167,12 @@ body:active {
   position: relative;
   display: flex;
   justify-content: center;
-  gap: 10px; /* 調整容器之間的間距 */
   padding-top: 50px; /* 讓容器有適當的上邊距 */
   flex-wrap: wrap; /* 允許容器換行 */
+    max-width: 1200px; /* 設置最大寬度 */
+    margin: 0 auto; /* 水平居中 */
+    overflow: hidden; /* 防止內容溢出 */
+
 }
 
 /* gif-container 預設樣式 */
@@ -179,9 +182,9 @@ body:active {
 }
 
 .gif-container img {
-  width: 100%; /* 讓 gif 圖自動調整大小，佔滿容器 */
-  max-width: 100%; /* 確保圖片不超出容器範圍 */
-  border-radius: 8px;
+  width: 100%;
+  height: auto; /* 保持圖片比例 */
+  max-width: 100%; /* 確保圖片不超出容器 */
 }
 
 .gif-container p {
