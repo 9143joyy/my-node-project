@@ -168,9 +168,10 @@ body:active {
 
 /* 圖片樣式 */
 .gif-container img {
-  width: auto; /* 圖片寬度填滿 */
+  width: 100%; /* 圖片寬度填滿 */
   height: 200px; /* 保持圖片比例 */
   border-radius: 4px; /* 圓角 */
+  object-fit: cover; /* 保持比例並填滿容器，部分圖片會被裁切 */
 }
 
 /* 文字樣式 */
@@ -204,6 +205,7 @@ body:active {
   max-width: 100%;
   position: relative;
   margin: auto;
+  background-color: #fff;
 }
 
 /* 每一張幻燈片 */
