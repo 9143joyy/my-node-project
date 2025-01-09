@@ -128,9 +128,9 @@ body:active {
 /* 標題樣式 */
 .gallery-title {
   text-align: center; /* 置中標題 */
-  font-size: 2.5rem;
+  font-size: 4rem;
   font-weight: bold;
-  color: #1f1f1f; /* 紫粉色 */
+  color: #1f1f1f; 
   margin-bottom: 20px;
 }
 
@@ -138,17 +138,17 @@ body:active {
   background-image: url('gallerybg.jpg'); 
   background-size: cover; /* 確保圖片覆蓋整個容器 */
   background-position: center; /* 圖片居中 */
+  display: flex; /* 設定為 Flexbox */
+  justify-content: space-between; /* 子項目等距分布 */
+  gap: 20px; /* 子項目之間的間距 */
 }
-
-
-
 
 /* 子容器樣式 */
 .gif-container {
   display: flex;
   flex-wrap: wrap; /* 容器內子項目可換行 */
   justify-content: center; /* 子項目居中對齊 */
-  width: 100px;
+  width: 300px;
   margin: 10px;
   text-align: center; /* 文字置中 */
   background-color: #fff; /* 白色背景 */
@@ -159,7 +159,7 @@ body:active {
 
 /* 圖片樣式 */
 .gif-container img {
-  width: 100%; /* 圖片寬度填滿父容器 */
+  width: 100%; /* 圖片寬度填滿 */
   height: auto; /* 保持圖片比例 */
   border-radius: 4px; /* 圓角 */
 }

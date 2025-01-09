@@ -44,7 +44,7 @@
       <div class="background"></div><!-- 作品展示區的背景 -->
       <h2 class="gallery-title">Gallery</h2> <!-- 添加標題 -->
   
-      <div v-for="item in gallery" :key="item.img" class="container">
+      <div v-for="item in gallery" :key="item.img" >
           <div class="gif-container">
               <!-- 綁定圖片的 src 和 alt 屬性 -->
               <img :src="'/img/'+item.img" :alt="item.text">
