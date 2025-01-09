@@ -78,6 +78,17 @@ body:active {
   overflow: hidden;
 }
 
+.parallax-title {
+  position: absolute;
+  top: 20%; /* 讓標題垂直居中 */
+  left: 50%; /* 讓標題水平居中 */
+  transform: translate(-50%, -50%);
+  font-size: 5rem; /* 設定標題字體大小 */
+  color: rgb(255, 255, 255); /* 設定文字顏色 */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* 設定文字陰影，使其在背景上更顯眼 */
+  z-index: 10;
+}
+
 /* 背景 */
 .parallax-background {
   position: fixed;
@@ -96,7 +107,6 @@ body:active {
 /* 圍巾樣式 */
 .leftscarf,.rightscarf {
   position: absolute;
-  top: 50%;
   transform: translateY(-30%);
   width: 60%; /* 根據需要調整寬度 */
   height: 900px; /* 根據需要調整高度 */
@@ -110,15 +120,15 @@ body:active {
 .leftscarf {
   left: 0; /* 初始位置 */
   background-image: url('scarfleft.png'); /* 左圍巾圖片 */
-  /*transform: translateY(-30%) translateY(50%); 調整右圍巾往下移動 */
-  /* 可以調整 translateY(20%) 的值來控制下移的距離 */
+  top: 40%;
 }
 
 .rightscarf {
   right: 0; /* 初始位置 */
   background-image: url('scarfright.png'); /* 右圍巾圖片 */
-  transform: translateY(-30%) translateY(50%); /* 調整右圍巾往下移動 */
-  /* 可以調整 translateY(20%) 的值來控制下移的距離 */
+  top: 24%;
+  width: 75%; /* 右邊圍巾的寬度比左邊大 */
+  height: 1600px; /* 右邊圍巾的高度比左邊大 */
 }
 
 
@@ -135,32 +145,30 @@ body:active {
 }
 
 .gallery {
-  background-image: url('gallerybg.jpg'); 
-  background-size: cover; /* 確保圖片覆蓋整個容器 */
-  background-position: center; /* 圖片居中 */
-  display: flex; /* 設定為 Flexbox */
-  justify-content: space-between; /* 子項目等距分布 */
+  display: flex; /* 使用 Flexbox 使子容器橫向排列 */
+  flex-wrap: wrap; /* 容器內子項目可以換行 */
   gap: 20px; /* 子項目之間的間距 */
+  background-image: url('gallerybg.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  height: 500px; /* 設定固定高度為 500px（根據需要調整） */
+  overflow-y: auto; /* 如果內容超過高度時，會顯示滾動條 */
 }
 
 /* 子容器樣式 */
 .gif-container {
-  display: flex;
-  flex-wrap: wrap; /* 容器內子項目可換行 */
-  justify-content: center; /* 子項目居中對齊 */
-  width: 300px;
-  margin: 10px;
   text-align: center; /* 文字置中 */
-  background-color: #fff; /* 白色背景 */
-  padding: 15px; /* 內距 */
-  border-radius: 8px; /* 圓角 */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 陰影效果 */
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* 圖片樣式 */
 .gif-container img {
   width: 100%; /* 圖片寬度填滿 */
-  height: auto; /* 保持圖片比例 */
+  height: 400px; /* 保持圖片比例 */
   border-radius: 4px; /* 圓角 */
 }
 

@@ -33,6 +33,7 @@
   <div class="parallax-background"></div>
   <div id="leftscarf" class="leftscarf"></div>
   <div id="rightscarf" class="rightscarf"></div>
+  <h1 class="parallax-title">9143</h1>
 </div>
 
 
@@ -40,7 +41,6 @@
 <!-- 作品區 -->
 <section id="gallery">
   <section class="gallery">
-    <div id="gallery">
       <div class="background"></div><!-- 作品展示區的背景 -->
       <h2 class="gallery-title">Gallery</h2> <!-- 添加標題 -->
   
@@ -52,7 +52,6 @@
               <p>{{ item.text }}</p>
           </div>
       </div>
-  </div>
 </section>
 </section>
 
@@ -80,8 +79,8 @@
            :class="{ active: currentIndex === index }">
         <img :src="item.img" :alt="'slideshow' + (index + 1)">
       </div>
-      <button class="prev" @click="prevImage">上一張</button>
-      <button class="next" @click="nextImage">下一張</button>      
+      <button class="prev" @click="prevImage">Previous</button>
+      <button class="next" @click="nextImage">Next</button>      
   </div>
 </section>
 
