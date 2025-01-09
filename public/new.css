@@ -167,14 +167,14 @@ body:active {
   position: relative;
   display: flex;
   justify-content: center;
-  gap: 50px; /* 調整容器之間的間距 */
+  gap: 10px; /* 調整容器之間的間距 */
   padding-top: 50px; /* 讓容器有適當的上邊距 */
   flex-wrap: wrap; /* 允許容器換行 */
 }
 
 /* gif-container 預設樣式 */
 .gif-container {
-  width: 300%; /* 可以根據需要調整寬度 */
+  width: 33%; /* 可以根據需要調整寬度 */
   text-align: center;
 }
 
