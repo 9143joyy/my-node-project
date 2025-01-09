@@ -169,20 +169,21 @@ body:active {
   justify-content: center;
   padding-top: 50px; /* 讓容器有適當的上邊距 */
   flex-wrap: wrap; /* 允許容器換行 */
-    max-width: 1200px; /* 設置最大寬度 */
-    margin: 0 auto; /* 水平居中 */
-    overflow: hidden; /* 防止內容溢出 */
+  max-width: 1200px; /* 設置最大寬度 */
+  margin: 0 auto; /* 水平居中 */
+  overflow: hidden; /* 防止內容溢出 */
 
 }
 
 /* gif-container 預設樣式 */
 .gif-container {
-    flex: 0 1 33%; /* 設置子元素固定基準寬度，並禁止撐開 */
+  flex: 0 1 33%; /* 設置子元素固定基準寬度，並禁止撐開 */
+  width: 50%; /* 調整為更大或更小的比例 */
   text-align: center;
 }
 
 .gif-container img {
-  width: 100%;
+  width: 90%;
   height: auto; /* 保持圖片比例 */
   max-width: 100%; /* 確保圖片不超出容器 */
 }
