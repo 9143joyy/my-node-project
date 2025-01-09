@@ -175,32 +175,35 @@ body:active {
 
 }
 
-/* 父容器，使用 Flexbox 排列 */
+/* 父容器設置 Flexbox */
 .container {
-  display: flex;
-  justify-content: center;
-  gap: 20px; /* 元素之間的間距 */
-  flex-wrap: wrap; /* 允許換行 */
+  display: flex; /* 啟用 Flexbox */
+  justify-content: center; /* 水平居中排列 */
+  gap: 20px; /* 子元素之間的間距 */
+  flex-wrap: wrap; /* 允許元素在空間不足時換行 */
   padding: 20px 0;
+  background-color: #f8f9fa; /* 確保背景顏色明顯 */
 }
 
-/* 子項目樣式 */
+/* 子容器樣式 */
 .gif-container {
-  flex: 0 1 30%; /* 寬度為容器的 30%，隨螢幕大小自適應 */
+  flex: 0 1 30%; /* 寬度占據父容器的 30% */
   max-width: 300px; /* 限制最大寬度 */
   text-align: center;
-  background-color: #fff; /* 背景為白色 */
+  background-color: #fff; /* 添加背景色 */
   padding: 10px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加陰影 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加陰影效果 */
 }
 
+/* 圖片樣式 */
 .gif-container img {
-  width: 100%;
-  height: auto;
+  width: 100%; /* 圖片填滿容器寬度 */
+  height: auto; /* 保持圖片比例 */
   border-radius: 4px;
 }
 
+/* 文字樣式 */
 .gif-container p {
   margin-top: 10px;
   font-size: 1rem;
@@ -211,15 +214,16 @@ body:active {
 /* 響應式設計 */
 @media (max-width: 768px) {
   .gif-container {
-    flex: 0 1 45%; /* 較小螢幕上改為 2 列排列 */
+    flex: 0 1 45%; /* 較小螢幕上每行顯示兩個項目 */
   }
 }
 
 @media (max-width: 480px) {
   .gif-container {
-    flex: 0 1 100%; /* 最小螢幕上改為單列排列 */
+    flex: 0 1 100%; /* 最小螢幕上每行顯示一個項目 */
   }
 }
+
 
 
 
