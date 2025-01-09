@@ -179,7 +179,8 @@ body:active {
 }
 
 .gif-container img {
-  width: 130%; /* 讓 gif 圖自動調整大小 */
+  width: 100%; /* 讓 gif 圖自動調整大小，佔滿容器 */
+  max-width: 100%; /* 確保圖片不超出容器範圍 */
   border-radius: 8px;
 }
 
