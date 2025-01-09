@@ -163,7 +163,7 @@ body:active {
 }
 
 /* 作品區容器 */
-.container {
+.gif-container {
   display: flex; /* 啟用 Flexbox */
   flex-wrap: wrap; /* 允許換行 */
   justify-content: center; /* 讓每排的內容水平居中 */
@@ -210,8 +210,6 @@ body:active {
     flex: 0 1 100%; /* 小螢幕上每行顯示一個項目 */
   }
 }
-
-
 
 
  /* carousel 區域 */
